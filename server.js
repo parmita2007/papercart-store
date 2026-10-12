@@ -2,7 +2,7 @@ const http = require('http');
 const fs = require('fs');
 const path = require('path');
 const crypto = require('crypto');
-
+const ROOT = __dirame;
 const ROOT = __dirname;
 const PUBLIC = path.join(ROOT, 'public');
 const DATA_DIR = path.join(ROOT, 'data');
@@ -58,4 +58,4 @@ const server=http.createServer(async(req,res)=>{
   return serveStatic(req,res,p);
  }catch(e){console.error(e);return send(res,500,{error:'Server error. Check the terminal window.'});}
 });
-server.listen(PORT,'127.0.0.1',()=>{ensureData();console.log(`\nPaperCart is running at http://localhost:${PORT}`);console.log('Local test mode. Orders are stored in data/orders.json');console.log('Admin login password:',ADMIN_PASSWORD);console.log('Keep this terminal open while testing. Press Ctrl+C to stop.\n');});
+server.listen(PORT,'0.0.0.0',()=>{ensureData();console.log('PaperCart is running at on PORT ${PORT}`);});
