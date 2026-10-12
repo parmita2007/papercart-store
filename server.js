@@ -3,7 +3,6 @@ const fs = require('fs');
 const path = require('path');
 const crypto = require('crypto');
 const ROOT = __dirame;
-const ROOT = __dirname;
 const PUBLIC = path.join(ROOT, 'public');
 const DATA_DIR = path.join(ROOT, 'data');
 const ORDERS_FILE = path.join(DATA_DIR, 'orders.json');
@@ -58,4 +57,4 @@ const server=http.createServer(async(req,res)=>{
   return serveStatic(req,res,p);
  }catch(e){console.error(e);return send(res,500,{error:'Server error. Check the terminal window.'});}
 });
-server.listen(PORT,'0.0.0.0',()=>{ensureData();console.log('PaperCart is running at on PORT ${PORT}`);});
+server.listen(PORT,'0.0.0.0',()=>{ensureData();console.log('PaperCart is running on Port ${PORT}`);});
